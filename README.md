@@ -67,9 +67,6 @@ Make sure you have the following:
 
 When prompted, type yes. The deployment may take several minutes.
 
-
-
-
 ### Accessing the Applications
 Once deployment is complete:
 
@@ -83,18 +80,20 @@ Replace yourdomain.com with your actual domain name.
 The RDS databases are private for security. To connect to them:
 
 1. Start an SSH Tunnel with AWS SSM:
-```aws ssm start-session \
-  --target <BI_TOOL_EC2_INSTANCE_ID> \
-  --document-name AWS-StartPortForwardingSession \
-  --parameters 'portNumber=["5432"],localPortNumber=["5432"]'```
+   ```bash
+   aws ssm start-session \
+     --target <BI_TOOL_EC2_INSTANCE_ID> \
+     --document-name AWS-StartPortForwardingSession \
+     --parameters 'portNumber=["5432"],localPortNumber=["5432"]'
+   
 Use 3306 for MySQL if connecting to the web app DB.
 
 2. Open DBeaver and configure a connection:
-- Host: `localhost`
+   - Host: `localhost`
 
-- Port: 5432 (PostgreSQL) or 3306 (MySQL)
+   - Port: 5432 (PostgreSQL) or 3306 (MySQL)
 
-- Username and Password set while setting up RDS instances
+   - Username and Password set while setting up RDS instances
  
 You can now run SQL scripts to populate dummy data.
 
@@ -124,5 +123,7 @@ The React app used in this deployment is containerized and hosted separately. Ma
 
 ### Cleanup Resources
 To delete all deployed AWS resources:
-```terraform destroy```
+   ```bash 
+   terraform destroy
+
 Type yes when prompted. This helps avoid unnecessary billing.
