@@ -1,53 +1,72 @@
-# AWS Project: Web App & Business Intelligence Platform
-This repository contains the Terraform Infrastructure as Code (IaC) setup for deploying a complete, cloud-native solution on Amazon Web Services (AWS). It provisions both a scalable web application and a Business Intelligence (BI) platform, with a focus on high availability, security, and automation.
+# AWS Cloud Project: Web App & Business Intelligence Platform
 
-## Architecture Overview
-The infrastructure is built using core AWS services, broken down as follows:
+This repository contains the Terraform Infrastructure as Code (IaC) configuration for deploying a cloud-native environment on AWS. It includes a scalable web application and a BI dashboard, both built for high availability and secure access.
 
-- Networking: Custom VPC with public and private subnets, NAT Gateway, and Internet Gateway setup.
+---
 
-- Compute: Auto Scaling Group of EC2 instances for the web app, and a separate EC2 instance for the BI tool.
+## ☁️ Architecture Overview
 
-- Databases:
+The infrastructure uses the following AWS services:
 
-  - Amazon RDS (MySQL) – for web application data
+- **Networking**
+  - VPC with public and private subnets
+  - Internet Gateway and NAT Gateway
 
-  - Amazon RDS (PostgreSQL) – for analytical data and as Metabase’s internal DB
+- **Compute**
+  - EC2 Auto Scaling Group for the web application
+  - A standalone EC2 instance for the BI dashboard
 
-- Load Balancing: HTTPS-enabled Application Load Balancer (ALB)
+- **Databases**
+  - RDS MySQL for operational data
+  - RDS PostgreSQL for analytics and Metabase internal storage
 
-- DNS & SSL: Route 53 for custom domain names and AWS Certificate Manager (ACM) for SSL certificates
+- **Load Balancing & SSL**
+  - Application Load Balancer (ALB) with HTTPS support
+  - Route 53 for DNS
+  - AWS Certificate Manager (ACM) for SSL
 
-- Containers & Deployment: Apps are containerized with Docker and deployed automatically using EC2 User Data scripts
+- **Deployment**
+  - Docker containers
+  - EC2 User Data scripts for automation
 
-## Getting Started
-Follow these steps to deploy the entire environment.
+---
+
+## 🚀 Getting Started
+
 ### Prerequisites
-Make sure you have the following installed and set up:
 
-- An AWS account and an IAM user with the required permissions
+Make sure you have the following:
 
-- Terraform v1.0+
+- An AWS account with programmatic access configured (`aws configure`)
+- Terraform v1.0+ installed
+- Git installed
+- DBeaver (or any other SQL client)
+- An SSH Key Pair created in your AWS region and the `.pem` file placed in this repo's root directory
+- A registered domain in AWS Route 53 (e.g., `yourdomain.com`)
 
-- Git
-
-- DBeaver or your preferred SQL client
-
-- A registered domain in Route 53 (e.g., yourdomain.com)
-
-- A valid SSH key pair in your AWS EC2 dashboard — .pem file should be placed in the root of this project
+---
 
 ### Setup Instructions
-1. Clone the repository
-```git clone https://github.com/HinaFarheen/Devops_AWS_Project.git
-cd Devops_AWS_Project```
-2. Initialize Terraform
-```terraform init```
-3. Review the execution plan
-```terraform plan```
-4. Apply the configuration
-```terraform apply```
+
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/HinaFarheen/Devops_AWS_Project.git
+   cd Devops_AWS_Project```
+
+2. **Initialize Terraform**
+```bash
+   terraform init```
+3. **Review the execution plan**
+```bash
+   terraform plan```
+5. **Apply the configuration**
+```bash
+   terraform apply```
+
 When prompted, type yes. The deployment may take several minutes.
+
+
+
 
 ### Accessing the Applications
 Once deployment is complete:
