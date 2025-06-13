@@ -54,13 +54,15 @@ Make sure you have the following:
    cd Devops_AWS_Project
 
 2. **Initialize Terraform**
-```bash
+   ```bash
    terraform init
+
 3. **Review the execution plan**
-```bash
+   ```bash
    terraform plan
+
 5. **Apply the configuration**
-```bash
+   ```bash
    terraform apply
 
 When prompted, type yes. The deployment may take several minutes.
