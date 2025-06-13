@@ -2,3 +2,14 @@
 *.tfstate
 *.tfvars
 *.log
+*.tfplan
+*.tfstate
+*.tfstate.*backup
+crash.log
+.terraformrc
+terraform.rc
+*.tfvars
+terraform.tfvars
+*.pem
+*.key
+.aws/
