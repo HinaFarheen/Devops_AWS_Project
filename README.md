@@ -109,13 +109,13 @@ You can now run SQL scripts to populate dummy data.
   - Enter RDS endpoint, port, and MySQL credentials from your terraform.tfvars
 
 ### Real-Time Data Demonstration
--- Create a dashboard using the MYSQL and PostgreSQL databases or use an existing one.
+- Create a dashboard using the MYSQL and PostgreSQL databases or use an existing one.
 
--- Insert new dummy rows in either RDS database using DBeaver
+- Insert new dummy rows in either RDS database using DBeaver
 
--- Refresh the Metabase dashboard
+- Refresh the Metabase dashboard
 
--- You’ll see updated charts and metrics instantly
+- You’ll see updated charts and metrics instantly
 
 ### Application Repository
 The React app used in this deployment is containerized and hosted separately. Make sure to replace this with your own fork:
@@ -123,7 +123,8 @@ The React app used in this deployment is containerized and hosted separately. Ma
 
 ### Cleanup Resources
 To delete all deployed AWS resources:
-   ```bash 
-   terraform destroy
+  ```bash
+  terraform destroy
+  ```
 
 Type yes when prompted. This helps avoid unnecessary billing.
