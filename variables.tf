@@ -51,7 +51,7 @@ variable "private_subnets" {
 variable "your_ip" {
   description = "Your public IP address for SSH access (e.g., 'X.X.X.X/32')"
   type        = string
-  default     = "101.53.224.48/32" # IMPORTANT: For production, narrow this to your actual IP
+  # No default value here for sensitive or dynamic data.
 }
 
 variable "db_username" {
@@ -64,7 +64,7 @@ variable "db_password" {
   description = "Password for RDS databases"
   type        = string
   sensitive   = true
-  default     = "StrongPass123!" # IMPORTANT: Change this to a strong, unique password!
+  # No default value here for sensitive data.
 }
 
 variable "mysql_db_name" {
